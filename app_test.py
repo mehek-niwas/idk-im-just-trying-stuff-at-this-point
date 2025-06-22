@@ -12,13 +12,14 @@ import math
 from streamlit_drawable_canvas import st_canvas
 from PIL import Image, ImageOps
 
-st.set_page_config(page_title="Mehek's AI Projects", layout="wide")
+st.set_page_config(page_title="PEEK into MNIST", layout="wide")
 
 # --- Personal Header ---
-st.title("👋 Welcome to Mehek's Personal Site")
+st.title("PEEK into CNN layers for the MNIST dataset")
 st.write("""
-Hi! I'm Mehek. I work on machine learning and explainability techniques.  
 This demo showcases a CNN trained on MNIST and uses **PEEK** to explain its predictions.
+PEEK stands for "Probabilistic Explanations for Entropic Knowledge extraction". It is an explainability method developed by the NETS Lab at the 
+Florida Institute of Technology.
 """)
 
 
@@ -171,10 +172,3 @@ if animate:
         img_container.image(buf, use_container_width=False)
         plt.close(fig)
         time.sleep(delay)
-else:
-    selected = st.slider("Layer", 0, len(heatmaps) - 1, 0)
-    fig, ax = plt.subplots(figsize=(2.5, 2.5))
-    ax.imshow(heatmaps[selected], cmap="hot")
-    ax.set_title(f"Layer {selected}")
-    ax.axis("off")
-    st.pyplot(fig)
