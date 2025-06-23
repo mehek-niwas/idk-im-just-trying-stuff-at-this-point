@@ -52,7 +52,7 @@ class SimpleCNN(nn.Module):
 
         x = self.flatten(x)
         x = self.fc1(x)
-        self.activations.append(x.clone().detach())
+        # self.activations.append(x.clone().detach())
         x = self.relu3(x)
 
         x = self.fc2(x)
